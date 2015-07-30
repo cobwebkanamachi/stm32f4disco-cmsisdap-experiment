@@ -3,21 +3,21 @@
 Publication	Transistor Gijutsu
 http://www.eandtechmedia.com/p-tg.php
 http://toragi.cqpub.co.jp/
-OR 
+OR <BR>
 http://shop.cqpub.co.jp/hanbai/books/48/48131.htm
 (BOARD, PARTS, articles)
-
+<BR>
 TORAGI ARM WRITER (MCU BOARD): 
 http://toragi.cqpub.co.jp/tabid/707/Default.aspx
 http://www.nxp-lpc.com/lpc_boards/arm-writer/
 sale on MARUTSU (assembled)
 http://www.marutsu.co.jp/pc/i/238834/
-
+<BR>
 CMSIS-DAP firmware for TORAGI ARM WRITER(CMSIS-DAP article by nahitafu, URL bellow is
 a firmware for TORAGI ARM writer only)
 http://toragi.cqpub.co.jp/Portals/0/download/2014/TR1403N.zip
-
-misc info on this.
+<BR>
+misc info on this.<BR>
 http://nahitafu.cocolog-nifty.com/nahitafu/2014/02/arm-6241.html
 https://twitter.com/nahitafu/status/433133873975672832
 http://nahitafu.cocolog-nifty.com/nahitafu/2014/02/armjtag-b881.html
