@@ -85,8 +85,8 @@ ARM WRITER(CN5)      SWD(stm32f4 disco)  <BR>
 6:NRESET     ------- 5:NRESET<BR>
 7:NC<BR>
 8:GND        ------- 3:GND<BR>
-<PRE>                     1:NC</PRE><BR>
-<PRE>		          6:NC</PRE><BR>
+             ------- 1:NC<BR>
+             ------- 6:NC<BR>
 ARM WRITER's CN5 direction is surface of board, top of BOARD is cn5.<BR>
 left is pin1, right is pin8<BR>
 stm32f4 disco's SWD connector 's pin1 is near white circle.<BR>
