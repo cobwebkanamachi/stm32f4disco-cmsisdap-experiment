@@ -89,3 +89,12 @@ ARM WRITER(CN5)      SWD(stm32f4 disco)  <BR>
 ARM WRITER's CN5 direction is surface of board, top of BOARD is cn5.<BR>
 left is pin1, right is pin8<BR>
 stm32f4 disco's SWD connector 's pin1 is near white circle.<BR>
+
+3.Screenshot
+https://twitter.com/cobwebkanamachi/status/626353159674302465
+4.notices
+4.1 Now, indeed test on ram only.
+4.2 you should tweak PLL_P and misc macros.
+    I edit codes, but too short time to publish(sorry, later if i could).
+
+Cheers.
