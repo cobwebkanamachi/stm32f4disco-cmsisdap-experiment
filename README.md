@@ -41,7 +41,7 @@ pin assign:<BR>
  DTR  ▷|     pio0_0(CN1:4, RESET)<BR>
  RTS  ▷|     pio0_1(CN2:11, TARGET_RESET)<BR>
  RxD          TxD(CN1:9)<BR>
-▷| : means diode (1n4148 like)
+▷| : means diode (1n4148 like)<BR>
       GND-----VBUS(CN2:8pin)<BR>
       +5v-----EXTPOWER(CN1:2pin)<BR>
       GND-----GND(CN1:1pin)<BR>
