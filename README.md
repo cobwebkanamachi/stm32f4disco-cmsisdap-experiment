@@ -92,7 +92,10 @@ left is pin1, right is pin8<BR>
 stm32f4 disco's SWD connector 's pin1 is near white circle.<BR>
 <BR>
 3.Screenshot<BR>
+MDK-ARM(KEIL) debug view<BR>
 https://twitter.com/cobwebkanamachi/status/626353159674302465 <BR>
+MDK-ARM(KEIL) project property, esp. cmsis-dap and target view.<BR>
+https://twitter.com/cobwebkanamachi/status/625969398797352960 <BR>
 4.notices<BR>
 4.1 Now, indeed test on ram only.<BR>
 4.2 you should tweak PLL_P and misc macros.<BR>
