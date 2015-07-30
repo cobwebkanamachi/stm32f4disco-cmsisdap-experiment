@@ -48,7 +48,8 @@ pin assign:<BR>
 power for TORAGI ARM WRITER is fed by AE-UM232R +5V to TORAGI ARM WRITER's 5v in.<BR>
 LPC11U35 QuickStart BoardをFT232経由で書き込んでみたり<BR>
 http://realteck458.blog117.fc2.com/blog-entry-146.html <BR>
-> VBUS(P0_3) ------ GND <BR>
+VBUS(P0_3) ------ GND <BR>
+I read this article, then test vbus--GND, that was right.
 <BR>
 1.2 Usage<BR>
  DTR, RTS tweak on Flash Magic option/Advanced<BR>
