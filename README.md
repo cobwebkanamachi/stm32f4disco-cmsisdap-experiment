@@ -7,7 +7,7 @@ OR <BR>
 http://shop.cqpub.co.jp/hanbai/books/48/48131.htm <BR>
 (BOARD, PARTS, articles) <BR>
 <BR>
-TORAGI ARM WRITER (MCU BOARD): <BR> 
+TORAGI ARM WRITER (MCU BOARD): LPC11U35/501 board this is.<BR> 
 http://toragi.cqpub.co.jp/tabid/707/Default.aspx <BR>
 http://www.nxp-lpc.com/lpc_boards/arm-writer/ <BR>
 sale on MARUTSU (assembled) <BR>
