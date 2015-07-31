@@ -1,5 +1,5 @@
 # stm32f4disco-cmsisdap-experiment
-※ Sorry, No waranty on this github every repositories.<BR>
+※ Sorry, No warranty on this github every repositories.<BR>
 Publication	Transistor Gijutsu<BR>
 http://www.eandtechmedia.com/p-tg.php <BR>
 http://toragi.cqpub.co.jp/ <BR>
