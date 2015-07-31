@@ -1,0 +1,463 @@
+<PRE>
+./Blinky.c ../RTX_Blinky5/Blinky.c
+110c110,117
+< 	SystemCoreClockUpdate();
+---
+>   uint32_t coreClock_1 = 0;                       /* Variables to store core clock values */
+>   uint32_t coreClock_2 = 0;
+> 	
+>   coreClock_1 = SystemCoreClock;                /* Store value of predefined SystemCoreClock */
+>   SystemCoreClockUpdate();                      /* Update SystemCoreClock according to register settings */
+>   coreClock_2 = SystemCoreClock;  
+> 	
+> 	//SystemCoreClockUpdate();
+
+./LED.c ../RTX_Blinky5/LED.c
+17a18
+> //#include <stm32f4xx_gpio.h>
+19a21,35
+> typedef struct
+> {
+> __IO uint32_t MODER;    /* GPIO port mode register,               Address offset: 0x00      */
+> __IO uint32_t OTYPER;   /* GPIO port output type register,        Address offset: 0x04      */
+> __IO uint32_t OSPEEDR;  /* GPIO port output speed register,       Address offset: 0x08      */
+> __IO uint32_t PUPDR;    /* GPIO port pull-up/pull-down register,  Address offset: 0x0C      */
+> __IO uint32_t IDR;      /* GPIO port input data register,         Address offset: 0x10      */
+> __IO uint32_t ODR;      /* GPIO port output data register,        Address offset: 0x14      */
+> __IO uint16_t BSRRL;    /* GPIO port bit set/reset low register,  Address offset: 0x18      */
+> __IO uint16_t BSRRH;    /* GPIO port bit set/reset high register, Address offset: 0x1A      */
+> __IO uint32_t LCKR;     /* GPIO port configuration lock register, Address offset: 0x1C      */
+> __IO uint32_t AFR[2];   /* GPIO alternate function registers,     Address offset: 0x20-0x24 */
+> } MYGPIO_TypeDef;
+> 
+> #define GPIOD             ((MYGPIO_TypeDef *) GPIOD_BASE)
+
+./RTE ../RTX_Blinky5/RTE
+Common subdirectories: ./RTE/CMSIS and ../RTX_Blinky5/RTE/CMSIS
+Common subdirectories: ./RTE/Device and ../RTX_Blinky5/RTE/Device
+diff --normal ./RTE/RTE_Components.h ../RTX_Blinky5/RTE/RTE_Components.h
+7c7
+<  * Target:  'STM32F407 Flash' 
+---
+>  * Target:  'STM32F407 RAM' 
+15c15
+< #define RTE_DEVICE_STARTUP_STM32F4xx    /* Device Startup for STM32F4 */
+---
+> #define RTE_DEVICE_STARTUP_STM32F4XX    /* Device Startup for STM32F4 */
+
+./RTE/Device ../RTX_Blinky5/RTE/Device
+Common subdirectories: ./RTE/Device/STM32F407VG and ../RTX_Blinky5/RTE/Device/STM32F407VG
+
+./RTE/Device/STM32F407VG ../RTX_Blinky5/RTE/Device/STM32F407VG
+
+./RTE/Device/STM32F407VG/system_stm32f4xx.c ../RTX_Blinky5/RTE/Device/STM32F407VG/system_stm32f4xx.c
+215a216,228
+> //#include "stm32f4xx.h"
+> 
+> #if !defined  (HSE_VALUE) 
+>   #define HSE_VALUE    ((uint32_t)25000000) /*!< Default value of the External oscillator in Hz */
+> #endif /* HSE_VALUE */
+> 
+> #if !defined  (HSI_VALUE)
+>   #define HSI_VALUE    ((uint32_t)16000000) /*!< Value of the Internal oscillator in Hz*/
+> #endif /* HSI_VALUE */
+> 
+> #if !defined  (HSE_STARTUP_TIMEOUT) 
+>   #define HSE_STARTUP_TIMEOUT    ((uint16_t)0x0500)   /*!< Time out for HSE start up */
+> #endif /* HSE_STARTUP_TIMEOUT */ 
+253a267,268
+> 
+> #if 0
+274a290,301
+> #endif
+> 
+> 
+> 
+> //
+> #define PLL_M 25
+> #define PLL_P  2
+> #define PLL_N  336
+> #define PLL_Q  7
+> //
+> 	
+> uint32_t SystemCoreClock = 180000000;
+
+./RTE/RTE_Components.h ../RTX_Blinky5/RTE/RTE_Components.h
+7c7
+<  * Target:  'STM32F407 Flash' 
+---
+>  * Target:  'STM32F407 RAM' 
+15c15
+< #define RTE_DEVICE_STARTUP_STM32F4xx    /* Device Startup for STM32F4 */
+---
+> #define RTE_DEVICE_STARTUP_STM32F4XX    /* Device Startup for STM32F4 */
+
+./Blinky.uvoptx ../RTX_Blinky5/Blinky.uvoptx
+15a16
+>     <nMigrate>0</nMigrate>
+33a35
+>         <RunAbUc>0</RunAbUc>
+76c78
+<         <IsCurrentTarget>1</IsCurrentTarget>
+---
+>         <IsCurrentTarget>0</IsCurrentTarget>
+78c80
+<       <CpuCode>255</CpuCode>
+---
+>       <CpuCode>18</CpuCode>
+82,83c84,85
+<           <Title>Getting Started (STM32F4-Discovery)</Title>
+<           <Path>C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Documents\DM00037368.pdf</Path>
+---
+>           <Title>User Manual (MCBSTM32F400)</Title>
+>           <Path>E:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\MDK\Boards\Keil\MCBSTM32F400\Documentation\mcbstm32f200.chm</Path>
+87,88c89,90
+<           <Title>User Manual (STM32F4-Discovery)</Title>
+<           <Path>C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Documents\DM00039084.pdf</Path>
+---
+>           <Title>Schematics (MCBSTM32F400)</Title>
+>           <Path>E:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\MDK\Boards\Keil\MCBSTM32F400\Documentation\mcbstm32f400-schematics.pdf</Path>
+92,93c94,95
+<           <Title>User Manual (MCBSTM32F400)</Title>
+<           <Path>C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Documents\mcbstm32f200.chm</Path>
+---
+>           <Title>Getting Started (STM32F4-Discovery)</Title>
+>           <Path>E:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\MDK\Boards\ST\STM32F4-Discovery\Documentation\DM00037368.pdf</Path>
+97,98c99,100
+<           <Title>Schematics (MCBSTM32F400)</Title>
+<           <Path>C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Documents\mcbstm32f400-schematics.pdf</Path>
+---
+>           <Title>User Manual (STM32F4-Discovery)</Title>
+>           <Path>E:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\MDK\Boards\ST\STM32F4-Discovery\Documentation\DM00039084.pdf</Path>
+103c105
+<           <Path>C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Documents\stm32f4discovery_bom.zip</Path>
+---
+>           <Path>E:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\MDK\Boards\ST\STM32F4-Discovery\Documentation\stm32f4discovery_bom.zip</Path>
+108c110
+<           <Path>C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Documents\stm32f4discovery_gerber.zip</Path>
+---
+>           <Path>E:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\MDK\Boards\ST\STM32F4-Discovery\Documentation\stm32f4discovery_gerber.zip</Path>
+113c115
+<           <Path>C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\1.0.8\Documents\stm32f4discovery_sch.zip</Path>
+---
+>           <Path>E:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\MDK\Boards\ST\STM32F4-Discovery\Documentation\stm32f4discovery_sch.zip</Path>
+146d147
+<         <tPdscDbg>1</tPdscDbg>
+149c150
+<         <nTsel>11</nTsel>
+---
+>         <nTsel>12</nTsel>
+160c161
+<         <pMon>STLink\ST-LINKIII-KEIL_SWO.dll</pMon>
+---
+>         <pMon>BIN\CMSIS_AGDI.dll</pMon>
+164a166,170
+>           <Key>CMSIS_AGDI</Key>
+>           <Name>-X"Toragi-LPC Writer CMSIS-DAP" -UA000000002 -O206 -S0 -C0 -P00 -N00("ARM CoreSight SW-DP") -D00(2BA01477) -L00(0) -FO7 -FD20000000 -FC800 -FN0</Name>
+>         </SetRegEntry>
+>         <SetRegEntry>
+>           <Number>0</Number>
+209a216
+>           <AccSizeX>0</AccSizeX>
+242a250
+>       <bLintAuto>0</bLintAuto>
+256a265
+>         <RunAbUc>0</RunAbUc>
+299c308
+<         <IsCurrentTarget>0</IsCurrentTarget>
+---
+>         <IsCurrentTarget>1</IsCurrentTarget>
+301c310
+<       <CpuCode>255</CpuCode>
+---
+>       <CpuCode>18</CpuCode>
+305,306c314,355
+<           <Title>Reference Manual</Title>
+<           <Path>DATASHTS\ST\STM32F4xx.PDF</Path>
+---
+>           <Title>User Manual (MCBSTM32F400)</Title>
+>           <Path>E:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\MDK\Boards\Keil\MCBSTM32F400\Documentation\mcbstm32f200.chm</Path>
+>         </Book>
+>         <Book>
+>           <Number>1</Number>
+>           <Title>Schematics (MCBSTM32F400)</Title>
+>           <Path>E:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\MDK\Boards\Keil\MCBSTM32F400\Documentation\mcbstm32f400-schematics.pdf</Path>
+>         </Book>
+>         <Book>
+>           <Number>2</Number>
+>           <Title>Getting Started (STM32F4-Discovery)</Title>
+>           <Path>E:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\MDK\Boards\ST\STM32F4-Discovery\Documentation\DM00037368.pdf</Path>
+>         </Book>
+>         <Book>
+>           <Number>3</Number>
+>           <Title>User Manual (STM32F4-Discovery)</Title>
+>           <Path>E:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\MDK\Boards\ST\STM32F4-Discovery\Documentation\DM00039084.pdf</Path>
+>         </Book>
+>         <Book>
+>           <Number>4</Number>
+>           <Title>Bill of Materials (STM32F4-Discovery)</Title>
+>           <Path>E:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\MDK\Boards\ST\STM32F4-Discovery\Documentation\stm32f4discovery_bom.zip</Path>
+>         </Book>
+>         <Book>
+>           <Number>5</Number>
+>           <Title>Gerber Files (STM32F4-Discovery)</Title>
+>           <Path>E:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\MDK\Boards\ST\STM32F4-Discovery\Documentation\stm32f4discovery_gerber.zip</Path>
+>         </Book>
+>         <Book>
+>           <Number>6</Number>
+>           <Title>Schematics (STM32F4-Discovery)</Title>
+>           <Path>E:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.5.0\MDK\Boards\ST\STM32F4-Discovery\Documentation\stm32f4discovery_sch.zip</Path>
+>         </Book>
+>         <Book>
+>           <Number>7</Number>
+>           <Title>MCBSTM32F400 Evaluation Board Web Page (MCBSTM32F400)</Title>
+>           <Path>http://www.keil.com/mcbstm32f400/</Path>
+>         </Book>
+>         <Book>
+>           <Number>8</Number>
+>           <Title>STM32F4-Discovery Web Page (STM32F4-Discovery)</Title>
+>           <Path>http://www.st.com/web/catalog/tools/FM116/SC959/SS1532/LN1199/PF252419</Path>
+329d377
+<         <tPdscDbg>1</tPdscDbg>
+332c380
+<         <nTsel>13</nTsel>
+---
+>         <nTsel>12</nTsel>
+343c391
+<         <pMon>STLink\ST-LINKIII-KEIL_SWO.dll</pMon>
+---
+>         <pMon>BIN\CMSIS_AGDI.dll</pMon>
+347a396,405
+>           <Key>ARMRTXEVENTFLAGS</Key>
+>           <Name>-L70 -Z18 -C0 -M0 -T1</Name>
+>         </SetRegEntry>
+>         <SetRegEntry>
+>           <Number>0</Number>
+>           <Key>CMSIS_AGDI</Key>
+>           <Name>-X"Toragi-LPC Writer CMSIS-DAP" -UA000000002 -O206 -S0 -C0 -P00 -N00("ARM CoreSight SW-DP") -D00(2BA01477) -L00(0) -FO7 -FD20000000 -FC800 -FN1 -FF0STM32F4xx_1024 -FS08000000 -FL0100000</Name>
+>         </SetRegEntry>
+>         <SetRegEntry>
+>           <Number>0</Number>
+349c407
+<           <Name>(105=-1,-1,-1,-1,0)(106=-1,-1,-1,-1,0)(107=-1,-1,-1,-1,0)</Name>
+---
+>           <Name></Name>
+420a479
+>       <bLintAuto>0</bLintAuto>
+501,526d559
+<     <File>
+<       <GroupNumber>5</GroupNumber>
+<       <FileNumber>4</FileNumber>
+<       <FileType>1</FileType>
+<       <tvExp>0</tvExp>
+<       <Focus>0</Focus>
+<       <tvExpOptDlg>0</tvExpOptDlg>
+<       <bDave2>0</bDave2>
+<       <PathWithFileName>RTE\CMSIS\RTX_Conf_CM.c</PathWithFileName>
+<       <FilenameWithoutPath>RTX_Conf_CM.c</FilenameWithoutPath>
+<       <RteFlg>1</RteFlg>
+<       <bShared>0</bShared>
+<     </File>
+<     <File>
+<       <GroupNumber>5</GroupNumber>
+<       <FileNumber>5</FileNumber>
+<       <FileType>4</FileType>
+<       <tvExp>0</tvExp>
+<       <Focus>0</Focus>
+<       <tvExpOptDlg>0</tvExpOptDlg>
+<       <bDave2>0</bDave2>
+<       <PathWithFileName>C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS_RTX\LIB\ARM\RTX_CM4.lib</PathWithFileName>
+<       <FilenameWithoutPath>RTX_CM4.lib</FilenameWithoutPath>
+<       <RteFlg>1</RteFlg>
+<       <bShared>0</bShared>
+<     </File>
+535,573d567
+<     <File>
+<       <GroupNumber>6</GroupNumber>
+<       <FileNumber>6</FileNumber>
+<       <FileType>5</FileType>
+<       <tvExp>0</tvExp>
+<       <Focus>0</Focus>
+<       <tvExpOptDlg>0</tvExpOptDlg>
+<       <bDave2>0</bDave2>
+<       <PathWithFileName>RTE\Device\STM32F407VG\RTE_Device.h</PathWithFileName>
+<       <FilenameWithoutPath>RTE_Device.h</FilenameWithoutPath>
+<       <RteFlg>1</RteFlg>
+<       <bShared>0</bShared>
+<     </File>
+<     <File>
+<       <GroupNumber>6</GroupNumber>
+<       <FileNumber>7</FileNumber>
+<       <FileType>2</FileType>
+<       <tvExp>0</tvExp>
+<       <Focus>0</Focus>
+<       <tvExpOptDlg>0</tvExpOptDlg>
+<       <bDave2>0</bDave2>
+<       <PathWithFileName>RTE\Device\STM32F407VG\startup_stm32f40_41xxx.s</PathWithFileName>
+<       <FilenameWithoutPath>startup_stm32f40_41xxx.s</FilenameWithoutPath>
+<       <RteFlg>1</RteFlg>
+<       <bShared>0</bShared>
+<     </File>
+<     <File>
+<       <GroupNumber>6</GroupNumber>
+<       <FileNumber>8</FileNumber>
+<       <FileType>1</FileType>
+<       <tvExp>0</tvExp>
+<       <Focus>0</Focus>
+<       <tvExpOptDlg>0</tvExpOptDlg>
+<       <bDave2>0</bDave2>
+<       <PathWithFileName>RTE\Device\STM32F407VG\system_stm32f4xx.c</PathWithFileName>
+<       <FilenameWithoutPath>system_stm32f4xx.c</FilenameWithoutPath>
+<       <RteFlg>1</RteFlg>
+<       <bShared>0</bShared>
+<     </File>
+
+./Blinky.uvprojx ../RTX_Blinky5/Blinky.uvprojx
+16a17,18
+>           <PackID>Keil.STM32F4xx_DFP.2.5.0</PackID>
+>           <PackURL>http://www.keil.com/pack</PackURL>
+84a87,88
+>             <nStopA1X>0</nStopA1X>
+>             <nStopA2X>0</nStopA2X>
+146d149
+<             <UsePdscDebugDescription>1</UsePdscDebugDescription>
+149c152
+<           <TargetSelection>11</TargetSelection>
+---
+>           <TargetSelection>12</TargetSelection>
+163c166
+<             <Driver>STLink\ST-LINKIII-KEIL_SWO.dll</Driver>
+---
+>             <Driver>BIN\CMSIS_AGDI.dll</Driver>
+362a366,367
+>             <v6Lang>0</v6Lang>
+>             <v6LangP>0</v6LangP>
+440,451d444
+<           <Files>
+<             <File>
+<               <FileName>RTX_Conf_CM.c</FileName>
+<               <FileType>1</FileType>
+<               <FilePath>RTE\CMSIS\RTX_Conf_CM.c</FilePath>
+<             </File>
+<             <File>
+<               <FileName>RTX_CM4.lib</FileName>
+<               <FileType>4</FileType>
+<               <FilePath>C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS_RTX\LIB\ARM\RTX_CM4.lib</FilePath>
+<             </File>
+<           </Files>
+455,471d447
+<           <Files>
+<             <File>
+<               <FileName>RTE_Device.h</FileName>
+<               <FileType>5</FileType>
+<               <FilePath>RTE\Device\STM32F407VG\RTE_Device.h</FilePath>
+<             </File>
+<             <File>
+<               <FileName>startup_stm32f40_41xxx.s</FileName>
+<               <FileType>2</FileType>
+<               <FilePath>RTE\Device\STM32F407VG\startup_stm32f40_41xxx.s</FilePath>
+<             </File>
+<             <File>
+<               <FileName>system_stm32f4xx.c</FileName>
+<               <FileType>1</FileType>
+<               <FilePath>RTE\Device\STM32F407VG\system_stm32f4xx.c</FilePath>
+<             </File>
+<           </Files>
+482a459,460
+>           <PackID>Keil.STM32F4xx_DFP.2.5.0</PackID>
+>           <PackURL>http://www.keil.com/pack</PackURL>
+550a529,530
+>             <nStopA1X>0</nStopA1X>
+>             <nStopA2X>0</nStopA2X>
+612d591
+<             <UsePdscDebugDescription>1</UsePdscDebugDescription>
+615c594
+<           <TargetSelection>13</TargetSelection>
+---
+>           <TargetSelection>12</TargetSelection>
+629c608
+<             <Driver>STLink\ST-LINKIII-KEIL_SWO.dll</Driver>
+---
+>             <Driver>BIN\CMSIS_AGDI.dll</Driver>
+828a808,809
+>             <v6Lang>0</v6Lang>
+>             <v6LangP>0</v6LangP>
+906,917d886
+<           <Files>
+<             <File>
+<               <FileName>RTX_Conf_CM.c</FileName>
+<               <FileType>1</FileType>
+<               <FilePath>RTE\CMSIS\RTX_Conf_CM.c</FilePath>
+<             </File>
+<             <File>
+<               <FileName>RTX_CM4.lib</FileName>
+<               <FileType>4</FileType>
+<               <FilePath>C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.1.1\CMSIS_RTX\LIB\ARM\RTX_CM4.lib</FilePath>
+<             </File>
+<           </Files>
+921,937d889
+<           <Files>
+<             <File>
+<               <FileName>RTE_Device.h</FileName>
+<               <FileType>5</FileType>
+<               <FilePath>RTE\Device\STM32F407VG\RTE_Device.h</FilePath>
+<             </File>
+<             <File>
+<               <FileName>startup_stm32f40_41xxx.s</FileName>
+<               <FileType>2</FileType>
+<               <FilePath>RTE\Device\STM32F407VG\startup_stm32f40_41xxx.s</FilePath>
+<             </File>
+<             <File>
+<               <FileName>system_stm32f4xx.c</FileName>
+<               <FileType>1</FileType>
+<               <FilePath>RTE\Device\STM32F407VG\system_stm32f4xx.c</FilePath>
+<             </File>
+<           </Files>
+954,955c906,907
+<       <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="3.20.0" condition="CMSIS Core">
+<         <package name="CMSIS" schemaVersion="1.0" url="http://www.keil.com/pack/" vendor="ARM" version="3.20.4"/>
+---
+>       <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="4.1.0" condition="CMSIS Core">
+>         <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="4.3.0"/>
+961,962c913,914
+<       <component Cclass="CMSIS" Cgroup="RTOS" Csub="Keil RTX" Cvendor="ARM" Cversion="4.74.0" condition="CMSIS Core">
+<         <package name="CMSIS" schemaVersion="1.0" url="http://www.keil.com/pack/" vendor="ARM" version="3.20.4"/>
+---
+>       <component Cclass="CMSIS" Cgroup="DSP" Cvendor="ARM" Cversion="1.4.5" condition="CMSIS DSP">
+>         <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="4.3.0"/>
+968,969c920,928
+<       <component Cclass="Device" Cgroup="Startup" Cvendor="Keil" Cversion="1.3.1" condition="STM32F4xx CMSIS Device">
+<         <package name="STM32F4xx_DFP" schemaVersion="1.2" url="http://www.keil.com/pack" vendor="Keil" version="1.0.8"/>
+---
+>       <component Cclass="CMSIS" Cgroup="RTOS" Csub="Keil RTX" Cvendor="ARM" Cversion="4.78.0" condition="Cortex-M Device Startup">
+>         <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="4.3.0"/>
+>         <targetInfos>
+>           <targetInfo name="STM32F407 Flash"/>
+>           <targetInfo name="STM32F407 RAM"/>
+>         </targetInfos>
+>       </component>
+>       <component Cclass="Device" Cgroup="Startup" Cvendor="Keil" Cversion="2.3.1" condition="STM32F4 CMSIS">
+>         <package name="STM32F4xx_DFP" schemaVersion="1.3" url="http://www.keil.com/pack" vendor="Keil" version="2.5.0"/>
+987c946
+<         <instance index="0">RTE\Device\STM32F407VG\RTE_Device.h</instance>
+---
+>         <instance index="0" removed="1">RTE\Device\STM32F407VG\RTE_Device.h</instance>
+989a949,954
+>         <targetInfos/>
+>       </file>
+>       <file attr="config" category="source" condition="STM32F407xx_ARMCC" name="Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f407xx.s" version="2.3.1">
+>         <instance index="0">RTE\Device\STM32F407VG\startup_stm32f407xx.s</instance>
+>         <component Cclass="Device" Cgroup="Startup" Cvendor="Keil" Cversion="2.3.1" condition="STM32F4 CMSIS"/>
+>         <package name="STM32F4xx_DFP" schemaVersion="1.3" url="http://www.keil.com/pack" vendor="Keil" version="2.5.0"/>
+996c961
+<         <instance index="0">RTE\Device\STM32F407VG\startup_stm32f40_41xxx.s</instance>
+---
+>         <instance index="0" removed="1">RTE\Device\STM32F407VG\startup_stm32f40_41xxx.s</instance>
+999,1002c964
+<         <targetInfos>
+<           <targetInfo name="STM32F407 Flash"/>
+<           <targetInfo name="STM32F407 RAM"/>
+<         </targetInfos>
+---
+>         <targetInfos/>
+</PRE>
