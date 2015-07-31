@@ -101,6 +101,8 @@ https://twitter.com/cobwebkanamachi/status/625969398797352960 <BR>
 4.1 Now, indeed test on ram only.<BR>
 4.2 you should tweak PLL_P and misc macros.<BR>
     I edit codes, but too short time to publish(sorry, later if i could).<BR>
+    Here it is shown as diff all in one.<BR>
+    https://github.com/cobwebkanamachi/stm32f4disco-cmsisdap-experiment/blob/master/Blinky.diff <BR>
     Please see url shown bellow.<BR>
     http://stm32f4-discovery.com/2014/11/overclock-stm32f4-device-up-to-250mhz/ <BR>
 <BR>
