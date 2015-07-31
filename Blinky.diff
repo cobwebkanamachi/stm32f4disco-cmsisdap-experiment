@@ -1,3 +1,17 @@
+This is a roughly showing diff of Blinky from original to built one.
+
+http://www.keil.com/download/files/apnt_230.zip
+If you download this file, extracted to 2 folders.
+one is "DSP5".
+one is "RTX_Blinky5".
+I import and make RTX_Blinky5.
+Debug could run for RAM only tested.
+.uproj was changed via KEIL, so did not edit by my hand directly.
+CLOCK was just gluecode purpose (to make complete), so CLOCK, PLL are 
+not quite right setting:-).
+
+But runs with debugger!
+
 ./Blinky.c ../RTX_Blinky5/Blinky.c
 110c110,117
 < 	SystemCoreClockUpdate();
