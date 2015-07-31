@@ -69,6 +69,7 @@ http://shop.cqpub.co.jp/hanbai/books/48/48131.htm <BR>
 2.2 TIPS<BR>
 2.2.1 PACKS are for STM32f4 Discovery uptodate, if update runs, remove old one if you could.<BR>
 2.2.2 CPU is STM32F407vg like designated<BR>
+STM32F407VGT6 used for STM32f4 Discovery, so KEIL's MCU selection is STM32F407vg.
 2.2.3 CORE and Startup are designated<BR>
 2.2.4 you may read and download these<BR>
 http://www.keil.com/appnotes/docs/apnt_230.asp <BR>
