@@ -1,4 +1,3 @@
-<PRE>
 ./Blinky.c ../RTX_Blinky5/Blinky.c
 110c110,117
 < 	SystemCoreClockUpdate();
@@ -460,4 +459,4 @@ Common subdirectories: ./RTE/Device/STM32F407VG and ../RTX_Blinky5/RTE/Device/ST
 <         </targetInfos>
 ---
 >         <targetInfos/>
-</PRE>
+
