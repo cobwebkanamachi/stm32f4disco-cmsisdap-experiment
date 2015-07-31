@@ -32,7 +32,7 @@ If you use usb port on osx only, you could no signal on that.
 1. FlashMagic<BR>
 You would bin to hex with arm-none-eabi-objcopy.<BR>
 1.1 Connection<BR>
-Please check by yourself misc docs(NO WARANTY).<BR>
+Please check by yourself misc docs(NO WARRANTY).<BR>
 http://akizukidenshi.com/catalog/g/gK-01977 <BR>
 AE-UM232R (FTDI serial-USB board) <BR>
 pin assign:<BR>
@@ -75,7 +75,7 @@ http://www.keil.com/appnotes/docs/apnt_230.asp <BR>
 Application Note 230 <BR>
 MDK V5.10 Lab for the STM32F4 Discovery Board <BR>
 2.2.5 connection board to board <BR>
-Please check by yourself misc docs(NO WARANTY).<BR>
+Please check by yourself misc docs(NO WARRANTY).<BR>
 ARM WRITER(CN5)      SWD(stm32f4 disco)  <BR>
 1:NC<BR>
 2:SWDIO(TGT) ------- 4:SWDIO<BR>
