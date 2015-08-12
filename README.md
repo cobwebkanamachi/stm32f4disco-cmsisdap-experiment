@@ -99,6 +99,14 @@ MDK-ARM(KEIL) project property, esp. cmsis-dap and target view.<BR>
 https://twitter.com/cobwebkanamachi/status/625969398797352960 <BR>
 4.notices<BR>
 4.1 Now, indeed test on ram only.<BR>
+    (addendum) I read a notice on this issue (on Notes) .<BR>
+    "Creating a Flash programming algorithm with MDK-Lite is not supported"<BR>
+    CMSIS-Pack  Version 1.3.3 Delivery Mechanism for Software Packs<BR>
+    Flash Programming Algorithms<BR>
+    https://www.keil.com/pack/doc/CMSIS/Pack/html/_flash_algorithm.html <BR>
+    You could know this if you read Flash/_Template/test and <BR>
+    open it on MDK, you would have Flash Algorithm Files for F10x.<BR>
+    I see this, then search that.<BR>
 4.2 you should tweak PLL_P and misc macros.<BR>
     I edit codes, but too short time to publish(sorry, later if i could).<BR>
     Here it is shown as diff all in one.<BR>
